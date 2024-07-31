@@ -6,9 +6,9 @@
         <artifactId>LearnLibrary</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
+    <packaging>pom</packaging>
     <artifactId>lab01-spring-security</artifactId>
-    <packaging>jar</packaging>
+
 
     <name>lab01-spring-security</name>
     <url>http://maven.apache.org</url>
@@ -17,12 +17,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+    <modules>
+        <module>lab01-spring-security-oauth2</module>
+        <module>lab02-authorization-server-password-credentials</module>
+        <module>lab02-authorization-server-authorization-code</module>
+        <module>lab02-authorization-server-implicit</module>
+        <module>lab02-authorization-server-client-credentials</module>
+        <module>lab02-resource-server</module>
+        <module>lab03-authorization-server-password-credentials</module>
+    </modules>
+
 </project>

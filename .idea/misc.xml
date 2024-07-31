@@ -5,7 +5,16 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/lab01-spring-security/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-security/pom.xml" />
+        <option value="$PROJECT_DIR$/lab01-spring-security/lab01-spring-security-oauth2/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/lab01-spring-security/lab01-demo1-spring-security-oauth2-password/pom.xml" />
+        <option value="$PROJECT_DIR$/lab01-spring-security/lab01-demo2-spring-security-oauth2-authorization-code/pom.xml" />
+      </set>
     </option>
     <option name="workspaceImportForciblyTurnedOn" value="true" />
   </component>

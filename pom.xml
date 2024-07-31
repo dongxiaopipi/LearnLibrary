@@ -5,21 +5,16 @@
   <groupId>org.coder</groupId>
   <artifactId>LearnLibrary</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>LearnLibrary</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+
+  <modules>
+    <module>lab01-spring-security</module>
+    <module>lab02-spring-authorization-server</module>
+  </modules>
+
 </project>

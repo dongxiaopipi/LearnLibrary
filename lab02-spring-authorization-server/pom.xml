@@ -7,6 +7,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>lab02-spring-authorization-server</artifactId>
-    <name>Archetype - lab02-spring-authorization-server</name>
+    <name>lab02-spring-authorization-server</name>
     <url>http://maven.apache.org</url>
 </project>

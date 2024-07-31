@@ -3,6 +3,7 @@ package org.coder.lab02authorizationserverpasswordcredentials.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -31,6 +32,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
      */
     @Resource
     private AuthenticationManager authenticationManager;
+    @Resource
+    private UserDetailsService userDetailsService;
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.checkTokenAccess("isAuthenticated()");
@@ -44,12 +47,16 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         clients.inMemory()
                 .withClient("clientapp")
                 .secret("123")
-                .authorizedGrantTypes("password")
+                .authorizedGrantTypes("password", "refresh_token")
+                .accessTokenValiditySeconds(3600)//访问令牌的有效期 2小时
+                .refreshTokenValiditySeconds(864000)//刷新令牌的有效期 10天
                 .scopes("read_userinfo", "read_contacts");
     }
 
+
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager);
+        endpoints.authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService);
     }
 }

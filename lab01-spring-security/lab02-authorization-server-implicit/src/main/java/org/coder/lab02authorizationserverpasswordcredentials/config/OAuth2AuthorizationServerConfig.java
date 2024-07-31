@@ -44,8 +44,8 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         clients.inMemory()
                 .withClient("clientapp")
                 .secret("123")
-                .authorizedGrantTypes("authorization_code")//授权码模式
-                .redirectUris("http://127.0.0.1:9090/callback")
+                .authorizedGrantTypes("implicit")//简化模式
+                .redirectUris("http://127.0.0.1:9090/callback2")
                 .scopes("read_userinfo", "read_contacts");
     }
 

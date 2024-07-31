@@ -1,8 +1,10 @@
 package org.coder.lab02authorizationserverpasswordcredentials.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -31,6 +33,15 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
      */
     @Resource
     private AuthenticationManager authenticationManager;
+
+    /**
+     * 创建PasswordEncodeBean
+     */
+    @Bean
+    public static NoOpPasswordEncoder passwordEncoder() {
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+    }
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.checkTokenAccess("isAuthenticated()");
@@ -44,7 +55,7 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
         clients.inMemory()
                 .withClient("clientapp")
                 .secret("123")
-                .authorizedGrantTypes("password")
+                .authorizedGrantTypes("client_credentials")//客户端模式
                 .scopes("read_userinfo", "read_contacts");
     }
 
