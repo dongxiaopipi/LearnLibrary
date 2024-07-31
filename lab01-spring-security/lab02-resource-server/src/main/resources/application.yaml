@@ -1,0 +1,16 @@
+server:
+  port: 9090
+
+
+security:
+  oauth2:
+    # oauth2 客户端配置，对应 Oauth2ClientProperties 类
+    client:
+      client-id: clientapp
+      client-secret: 123
+    # oauth2 资源服务器配置，对应 ResourceServerProperties 类
+    resource:
+      token-info-uri: http://localhost:8080/oauth/check_token # 获取token的url
+    access-token-uri: http://localhost:8080/oauth/token # 获取token的url
+
+

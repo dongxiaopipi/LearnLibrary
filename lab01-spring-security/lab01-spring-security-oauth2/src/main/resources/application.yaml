@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: lab01-spring-security-oauth2
+
+  security:
+    user:
+      name: root
+      password: 12345678
+      roles: admin
