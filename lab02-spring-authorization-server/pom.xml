@@ -8,5 +8,12 @@
     </parent>
     <artifactId>lab02-spring-authorization-server</artifactId>
     <name>lab02-spring-authorization-server</name>
-    <url>http://maven.apache.org</url>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lab02-01-spring-authorization-server</module>
+        <module>authorization-client-example</module>
+        <module>lab02-01-spring-resource-server</module>
+    </modules>
 </project>

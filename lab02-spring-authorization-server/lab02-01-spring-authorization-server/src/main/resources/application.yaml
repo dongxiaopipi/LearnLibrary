@@ -1,0 +1,54 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/miller?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+  security:
+    oauth2:
+      client:
+        registration:
+          gitee:
+            # 指定oauth登录提供者，该oauth登录由provider中的gitee来处理
+            provider: gitee
+            # 客户端名称
+            client-name: Sign in with Gitee
+            # 认证方式
+            authorization-grant-type: authorization_code
+            # 客户端id
+            client-id: 3a1ab5746080f3221cb3e07cf8798d7db1e33f276e7410b3ec17b50dcbcecfc4
+            # 客户端密钥
+            client-secret: 069fc832be6f0ac931473aa2e446401769710b48f5b9dcd77441cc08016ab1b5
+            # 回调地址
+            redirect-uri: http://127.0.0.1:8080/login/oauth2/code/gitee
+            # 申请scope列表
+            scope:
+              - emails
+#              - projects
+          github:
+            # security client默认实现了GitHub提供的oauth2登录
+            provider: github
+            client-id: Iv23li58aDoglmNRJt0J
+            client-secret: 6c12b18eead5a46fb227849960468a4d4d6ce470
+        provider:
+          # gitee的oauth2端点配置
+          gitee:
+            # 设置用户信息响应体中账号的字段
+            user-name-attribute: id
+            # 获取token的地址
+            token-uri: https://gitee.com/oauth/token
+            # 获取用户信息的地址
+            user-info-uri: https://gitee.com/api/v5/user
+            # 发起授权申请的地址
+            authorization-uri: https://gitee.com/oauth/authorize
+
+
+
+mybatis-plus:
+  mapper-locations:
+    - classpath:org/coder/lab0201springauthorizationserver/mapper/xml/*.xml
+
